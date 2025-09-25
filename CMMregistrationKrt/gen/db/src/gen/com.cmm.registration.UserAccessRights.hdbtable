@@ -1,0 +1,13 @@
+COLUMN TABLE com_cmm_registration_UserAccessRights (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  user_ID NVARCHAR(36),
+  user_requestorID NVARCHAR(5000),
+  accessRight_ID NVARCHAR(36),
+  accessTypes_ID NVARCHAR(36),
+  AccessRightStatus NVARCHAR(5000),
+  PRIMARY KEY(ID)
+)

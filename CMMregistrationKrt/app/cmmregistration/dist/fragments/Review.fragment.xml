@@ -1,0 +1,416 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:u="sap.ui.unified"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+<ScrollContainer
+                height="100%"
+                width="100%"
+                vertical="true"
+            >
+    <Panel
+        width="auto"
+        height="80px"
+        class="cmmPanelMargin"
+        accessibleRole="Region"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <Title text="1. Select access type" />
+
+                <ToolbarSpacer />
+
+                <Button
+                    icon="sap-icon://edit"
+                    text="Edit"
+                    press="handleGoToAccessType"
+                />
+            </OverflowToolbar>
+        </headerToolbar>
+
+        <content>
+            <form:SimpleForm
+                id="idReviewAccType"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="3"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="4"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="true"
+                ariaLabelledBy="ariaTitle1"
+            >
+                <form:content>
+                    <VBox width="100%">
+                        <HBox height="10px">
+                            <Label text="Type of access : " class="customLabel" />
+
+                            <Text text="{wizardModel>/accessRequest}" class="customLabel"/>
+                        </HBox>
+                    </VBox>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </Panel>
+
+    <Panel
+        width="auto"
+        class="cmmPanelMargin"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <Title text="2. Requestor/Company Information" />
+
+                <ToolbarSpacer id="_IDGenToolbarSpacer4" />
+
+                <Button
+                    icon="sap-icon://edit"
+                    text="Edit"
+                    press="handleGoToCompanyInfo"
+                />
+            </OverflowToolbar>
+        </headerToolbar>
+
+        <content>
+            <form:SimpleForm
+                id="idReviewReqCompInfo"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="3"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="4"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="1"
+                columnsM="1"
+                singleContainerFullSize="true"
+                ariaLabelledBy="ariaTitle1"
+            >
+                <!-- Your code here -->
+
+                <form:content>
+                    <VBox width="100%">
+                        <HBox height="10px">
+                            <Label text="Type of request : " class="customLabel"/>
+
+                            <Text text="{wizardModel>/requestType}" class="customLabel"/>
+
+                            <Label />
+                        </HBox>
+                    </VBox>
+                </form:content>
+            </form:SimpleForm>
+
+            <VBox class="cmmFlexBoxBackgroundColor">
+                <form:SimpleForm
+                    id="SimpleFormDisplay480_Trial"
+                    editable="false"
+                    layout="ResponsiveGridLayout"
+                    labelSpanXL="4"
+                    labelSpanL="4"
+                    labelSpanM="4"
+                    labelSpanS="12"
+                    adjustLabelSpan="false"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                    columnsXL="3"
+                    columnsL="3"
+                    columnsM="3"
+                    backgroundDesign="Transparent"
+                    singleContainerFullSize="false"
+                >
+                    <form:content>
+                        <core:Title text="Requestor Information" />
+                        <Label text="First Name" class="customLabel"/>
+
+                        <Text text="{wizardModel>/firstName}" class="customLabel"/>
+
+                        <Label text="Last Name" class="customLabel" />
+
+                        <Text text="{wizardModel>/lastName}" class="customLabel" />
+                        <Label text="Phone Number" class="customLabel" />
+
+                        <Text text="{wizardModel>/phone}" class="customLabel" />
+
+                        <Label text="Email Address" class="customLabel" />
+
+                        <Text text="{wizardModel>/email}" class="customLabel"/>
+
+                        <Label text="Job Title" class="customLabel"/>
+                        <Text text="{wizardModel>/jobTitle}" class="customLabel"/>
+                        <core:Title text="Employer company information" />
+                        <Label text="Employer Name" class="customLabel"/>
+
+                        <Text text="{wizardModel>/employerName}" class="customLabel" />
+
+                        <Label text="Employer Address" class="customLabel"/>
+
+                        <Text text="{wizardModel>/employerAddress}" class="customLabel" />
+                        <core:Title text="Authorized signatory" />
+                        <Label text="Name" class="customLabel" />
+
+                        <Text
+                            text="{wizardModel>/firstName} {wizardModel>/lastName}" class="customLabel"
+                        />
+
+                        <Label text="Job title" class="customLabel"/>
+
+                        <Text text="{wizardModel>/jobTitle}" class="customLabel" />
+
+                        <Label text="Email" class="customLabel"/>
+
+                        <Text text="{wizardModel>/email}" class="customLabel"/>
+
+                        <Label text="Phone number" class="customLabel"/>
+
+                        <Text text="{wizardModel>/phone}"  class="customLabel"/>
+                    </form:content>
+                </form:SimpleForm>
+            </VBox>
+        </content>
+    </Panel>
+    <!-- </HBox>
+</FlexBox> -->
+    <Panel
+        width="auto"
+        class="cmmPanelMargin"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <Title text="3. Subscriber information" />
+                <ToolbarSpacer id="_IDGenToolbarSpacer5" />
+                <Button
+                    id="_IDGenButton12"
+                    icon="sap-icon://edit"
+                    text="Edit"
+                    press="handleGoToSubscriber"
+                />
+            </OverflowToolbar>
+        </headerToolbar>
+
+        <content>
+            <Table
+                id="idTableAddOper1"
+                mode="None"
+                items="{wizardModel>/subscribers}"
+            >
+                <columns>
+                    <Column
+                        id="_IDGenColumn"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="First Name" class="customLabel"/>
+                        </header>
+                    </Column>
+                    <Column
+                        id="_IDGenColumn7"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="Last Name" class="customLabel"/>
+                        </header>
+                    </Column>
+                    <Column
+                        id="_IDGenColumn8"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="Job Title" class="customLabel" />
+                        </header>
+                    </Column>
+                    <Column
+                        id="_IDGenColumn9"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="Email Address"  class="customLabel"/>
+                        </header>
+                    </Column>
+                    <Column width="16%">
+                        <header>
+                            <Label text="Country Code" class="customLabel"/>
+                        </header>
+                    </Column>
+                    <Column
+                        id="_IDGenColumn10"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="Phone Number" class="customLabel"/>
+                        </header>
+                    </Column>
+                    <Column
+                        id="_IDGenColumn11"
+                        width="16%"
+                    >
+                        <header>
+                            <Label text="Request Effective Date" class="customLabel"  />
+                        </header>
+                    </Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem
+                        id="idOperatorAddItem1"
+                        type="Active"
+                    >
+                        <cells>
+                            <Text text="{wizardModel>firstName}" class="customLabel" />
+                            <Text text="{wizardModel>lastName}"  class="customLabel"/>
+                            <Text text="{wizardModel>jobTitle}"  class="customLabel"/>
+                            <Text text="{wizardModel>email}"  class="customLabel"/>
+                            <Text text="{wizardModel>/countryCode}"  class="customLabel"/>
+                            <Text text="{wizardModel>phone}"  class="customLabel"/>
+                            <Text text="{wizardModel>requestEffDate}" class="customLabel"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Panel>
+    <Label id="_IDGenLabel58" />
+    <form:SimpleForm
+        id="idAccessRights"
+        width="100%"
+        layout="ResponsiveGridLayout"
+    >
+        <form:toolbar>
+            <Toolbar id="_IDGenToolbar4">
+                <Title
+                    id="_IDGenTitle13"
+                    text="4. Access Rights"
+                />
+                <ToolbarSpacer id="_IDGenToolbarSpacer6" />
+                <Button
+                    id="_IDGenButton13"
+                    icon="sap-icon://edit"
+                    text="Edit"
+                    press="handleGoToAccessRights"
+                />
+            </Toolbar>
+        </form:toolbar>
+
+        <form:content>
+            <ScrollContainer
+                height="50%"
+                width="100%"
+                vertical="true"
+            >
+                <SplitApp
+                    id="SplitApp"
+                >
+                    <masterPages>
+                        <Page
+                            id="masterPage"
+                            title="Users"
+                        >
+                            <content>
+                                <List
+                                    id="userLists"
+                                    mode="SingleSelectMaster"
+                                    items="{AccessModel>/users}"
+                                    selectionChange="onUserSelect"
+                                    class="cmmAccessRightsListItem"
+                                >
+                                    <StandardListItem
+                                        title="{AccessModel>firstName} {AccessModel>lastName}"
+                                        class="cmmAccessRightsListItem"
+                                    />
+                                </List>
+                            </content>
+                        </Page>
+                    </masterPages>
+
+                    <detailPages>
+                        <Page
+                            id="detailPage"
+                            title="User Access"
+                        >
+                            <content>
+                                <VBox id="accessVBox" />
+                            </content>
+                        </Page>
+                    </detailPages>
+                </SplitApp>
+            </ScrollContainer>
+        </form:content>
+    </form:SimpleForm>
+
+    <Panel>
+        <form:SimpleForm>
+            <form:content>
+                <FlexBox
+                    class="reviewPageinfo"
+                    id="flexboxreviewpage"
+                >
+                    <VBox
+                        id="_IDGenVBox5"
+                        class="sapUiSmallMargin"
+                    >
+                        <Title
+                            id="_IDGenTitle18"
+                            text="Legal"
+                            level="H4"
+                        />
+                        <Text
+                            text="By submitting this request you certify that all information provided in the request is accurate
+and the Authorized Signatory identified within the request has the authority to bind 2022166 Ontario Inc.
+It is the responsibility of 2022156 Ontario Inc to inform Enbridge Gas Inc. when a change to any access granted is required"
+                        />
+                    </VBox>
+                </FlexBox>
+            </form:content>
+        </form:SimpleForm>
+        <form:SimpleForm>
+            <form:content>
+                <FlexBox
+                    justifyContent="Start"
+                    id="captcha"
+                    height="70px"
+                >
+                    <core:HTML
+                        id="recaptchaContainer"
+                        content='&lt;div id=&quot;recaptchaGoogle&quot; class=&quot;g-recaptcha&quot; data-sitekey=&quot;6LfaKP8qAAAAAC6ivR0QAFzlnJwj_lKRc-gUxw2a&quot;&gt;&lt;/div&gt;'
+                    />
+                </FlexBox>
+            </form:content>
+        </form:SimpleForm>
+
+        <HBox
+            justifyContent="Start"
+            class="sapUiContentPadding"
+        >
+            <VBox>
+                <Button
+                    text="Submit"
+                    press="onSubmit"
+                />
+            </VBox>
+        </HBox>
+    </Panel>
+</ScrollContainer>
+</core:FragmentDefinition>

@@ -1,0 +1,45 @@
+<mvc:View displayBlock="true" controllerName="cmmaccessadminrights.controller.List" height="100%"
+	  xmlns="sap.m"
+	  xmlns:f="sap.f"
+	  xmlns:mvc="sap.ui.core.mvc">
+	<f:DynamicPage id="dynamicPageId"
+				   toggleHeaderOnTitleClick="false">
+		<!-- DynamicPage Title 
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="Products ({products>/ProductCollectionStats/Counts/Total})"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>-->
+
+		<!-- DynamicPage Content -->
+		
+		<f:content>
+		
+			<Table
+				id="productsTable"
+				mode="SingleSelectMaster"
+				itemPress="onListItemPress"
+				inset="false"
+				class="sapFDynamicPageAlignContent"
+				width="100%">
+				<headerToolbar>
+					<OverflowToolbar>
+						<SearchField search="onSearch" class= "searchList"/>
+					</OverflowToolbar>
+				</headerToolbar>
+				<columns>
+					<Column width="12em">
+						
+					</Column>
+					
+				</columns>
+				
+			</Table>
+		</f:content>
+
+		<!-- DynamicPage Footer -->
+		
+	</f:DynamicPage>
+</mvc:View>

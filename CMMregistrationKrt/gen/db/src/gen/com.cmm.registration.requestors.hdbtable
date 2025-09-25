@@ -1,0 +1,20 @@
+COLUMN TABLE com_cmm_registration_requestors (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  requestorID NVARCHAR(5000) NOT NULL,
+  submissionID NVARCHAR(5000),
+  firstName NVARCHAR(5000),
+  lastName NVARCHAR(5000),
+  phoneNumber NVARCHAR(5000),
+  emailID NVARCHAR(5000),
+  companyName NVARCHAR(5000),
+  authorizedSignatory NVARCHAR(5000),
+  requestType NVARCHAR(5000),
+  requestDate NVARCHAR(5000),
+  status NVARCHAR(5000),
+  AccessRightType_ID NVARCHAR(36),
+  PRIMARY KEY(ID, requestorID)
+)

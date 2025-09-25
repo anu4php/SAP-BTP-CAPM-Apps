@@ -1,0 +1,9 @@
+VIEW registrationService_accessrights AS SELECT
+  AccessRight_0.ID,
+  AccessRight_0.createdAt,
+  AccessRight_0.createdBy,
+  AccessRight_0.modifiedAt,
+  AccessRight_0.modifiedBy,
+  AccessRight_0.rightName,
+  AccessRight_0.category_ID
+FROM com_cmm_registration_AccessRight AS AccessRight_0

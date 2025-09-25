@@ -1,0 +1,160 @@
+<mvc:View
+    controllerName="cmmregistration.controller.Registration"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:u="sap.ui.unified"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+    <Page
+        id="UserRegistration"
+        showHeader="false"
+        backgroundDesign="Standard"
+    >
+        <core:Fragment fragmentName="cmmregistration.fragments.TopHeader" />
+
+        <f:DynamicPage
+            id="formDynamic"
+            stickySubheaderProvider="CreateProductWizard"
+            toggleHeaderOnTitleClick="false"
+            class="sapUiNoContentPadding"
+            title="Enerline Access Request"
+            showFooter="true"
+                                   fitContent="true"
+        >
+            <f:content>
+                <VBox
+                    class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                >
+                    <!-- 🔹 Header above the Wizard -->
+                    <Text
+                        text="Enerline Access Request"
+                        class="sapUiXXLargeFontSize sapUiResponsiveMargin sapUiMediumMarginBottom headingText"
+                    />
+                    <!-- 🔹 Header above the Wizard -->
+
+                    <!-- 🔹 Wizard Component -->
+                    <Wizard
+                        id="idCreateProductWizard"
+                        showNextButton="false"
+                        navigationChange="handleNavigationChange"
+                        renderMode="Page"
+ 
+                    >
+                        <WizardStep
+                            id="idAccessType"
+                            title="Select Access Type"
+                            validated="{wizardModel>/isItemSelected}"
+                            activate="accessTypeActivate"
+                            icon="sap-icon://cart"
+                        >
+                            <core:Fragment
+                                fragmentName="cmmregistration.fragments.SelectAccessType"
+                            />
+                            <!-- <core:Fragment
+                                fragmentName="cmmregistration.fragments.Review"
+                            /> -->
+                        </WizardStep>
+
+                        <WizardStep
+                            id="idCompanyInfo"
+                            title="Requestor/Company Information"
+                            validated="true"
+                            activate="additionalInfoValidation"
+                        >
+                            <core:Fragment
+                                fragmentName="cmmregistration.fragments.RequestorForm"
+                            />
+                        </WizardStep>
+
+                        <WizardStep
+                            id="idSubscriberInfo"
+                            validated="true"
+                            activate="optionalStepActivation"
+                            title="User Information"
+                        >
+                            <core:Fragment
+                                fragmentName="cmmregistration.fragments.SubscriberInformation"
+                            />
+                        </WizardStep>
+
+                        <WizardStep
+                            id="PricingStep"
+                            activate="pricingActivate"
+                            complete="pricingComplete"
+                            validated="true"
+                            title="Access Rights"
+                        >
+                            <core:Fragment
+                                fragmentName="cmmregistration.fragments.AccessRights"
+                            />
+                        </WizardStep>
+
+                        <WizardStep
+                            id="ReviewPage"
+                            activate="reviewActivate"
+                            complete="reviewComplete"
+                            validated="false"
+                            title="Review/Submit"
+                        >
+                            <core:Fragment
+                                fragmentName="cmmregistration.fragments.Review"
+                            />
+                        </WizardStep>
+                    </Wizard>
+                </VBox>
+            </f:content>
+
+            <f:footer>
+                <OverflowToolbar id="_IDGenOverflowToolbar">
+                    <!-- 🔹 Message Popover Button -->
+
+            <!-- //KK -5/21/2025 BOC -->
+                    <Button
+                        id="messagePopoverButton"
+                        icon="sap-icon://error"
+                        type = "Reject"
+                        tooltip="Show Messages"
+                        text = "{= ${message>/}.length}"
+                        press="onMessagePopoverPress"
+                        visible = "{= ${message>/}.length&gt;0}"
+                        ariaHasPopup="Dialog"
+                    />
+
+            <!-- //KK -5/21/2025 BOC -->
+                    <ToolbarSpacer id="_IDGenToolbarSpacer" />
+
+                    <Button
+                        text="Go to Top Header"
+                        visible="false"
+                        press=".onNavigateToTopHeader"
+                    />
+                    <Button
+                        id="_IDGenButton3"
+                        text="Submit"
+                        visible="false"
+            
+                        type="Emphasized"
+                        enabled="{wizardModel>/isSubmitbtn}"
+                        
+                        press="onSubmit"
+                    />
+                    <Button
+                        id="_IDGenButton4"
+                        text="Cancel"
+                        type="Transparent"
+                        press="handleWizardCancel"
+                    />
+                </OverflowToolbar>
+            </f:footer>
+        </f:DynamicPage>
+    </Page>
+</mvc:View>

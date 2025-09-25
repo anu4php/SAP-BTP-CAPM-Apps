@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:f="sap.f"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+
+    <Bar class="topheaderstyle">
+        <contentLeft>
+        <Image
+                                id="_IDGenImage1"
+                                src="./images/enbridge_white.png"
+                                backgroundSize="cover"
+                                width="150px"
+                                height="30px"
+                                class="cmmLogoPaddingLeft"
+                            />
+        </contentLeft>
+        
+<!--        <contentMiddle>
+            <OverflowToolbar>
+                <ToggleButton text="Dashboard" />
+                <MenuButton text="Business partners" menu="{businessPartnersMenu}"/>
+                <MenuButton text="Contracting" menu="{contractingMenu}"/>
+                <MenuButton text="Billing  Financials" menu="{billingMenu}"/>
+                <MenuButton text="Gas management" menu="{gasManagementMenu}"/>
+                <MenuButton text="Gas accounting" menu="{gasAccountingMenu}"/>
+                <MenuButton text="Reports" menu="{reportsMenu}"/>
+                <MenuButton text="Support" menu="{supportMenu}"/>
+            </OverflowToolbar>
+        </contentMiddle> -->
+
+                            <!-- Spacer to push the image and other content to the left -->
+                            
+        <contentRight  >
+            <Link
+                
+                text="Contact Us"
+                icon="sap-icon://discussion"
+                class="styleBannerTop cmmContactUsFont cmmLogosapMLnk"
+                href="https://www.enbridgegas.com/ontario/contact-us"
+            />
+        </contentRight>
+        </Bar>
+
+</core:FragmentDefinition>

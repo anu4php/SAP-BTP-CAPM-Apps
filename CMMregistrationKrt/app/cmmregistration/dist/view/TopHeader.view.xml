@@ -1,0 +1,151 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    controllerName="cmmregistration.controller.TopHeader"
+    xmlns:f="sap.f">
+
+    <f:DynamicPage>
+        <!-- HEADER SECTION -->
+        <f:title>
+            <f:DynamicPageTitle id="_IDGenDynamicPageTitdle" class="bannerStyleReg">
+                <f:actions>
+                    <Bar>
+                        <!-- Left: Logo -->
+                        <contentLeft>
+                            <Image id="_IDGenImage1q"
+                                src="https://static.wixstatic.com/media/1e2d81_e6b8b56e4ad3495d8bf32d8f9dd51d32~mv2.png"
+                                width="120px"/>
+                        </contentLeft>
+
+                        <!-- Right: Action Buttons -->
+                        <contentRight>
+                            <Button icon="sap-icon://search" tooltip="Search" press="onSearch"/>
+                            <Button icon="sap-icon://bell" tooltip="Notifications" press="onNotifications"/>
+                            <MenuButton icon="sap-icon://customer">
+                                <menu>
+                                    <Menu>
+                                        <MenuItem text="Profile"/>
+                                        <MenuItem text="Settings"/>
+                                        <MenuItem text="Logout"/>
+                                    </Menu>
+                                </menu>
+                            </MenuButton>
+                        </contentRight>
+                    </Bar>
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <!-- MENU SECTION (Below Header) -->
+      <f:header>
+    <f:DynamicPageHeader>
+        <Toolbar>
+            <OverflowToolbar>
+                <!-- Dynamic Menu Items with Visibility -->
+                <ToggleButton text="Dashboard" visible="{companyModel>/menuData/Dashboard}"/>
+                
+                <MenuButton text="Business partners" visible="{companyModel>/menuData/BusinessPartners}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Clients"/>
+                            <MenuItem text="Suppliers"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Contracting" visible="{companyModel>/menuData/Contracting}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Contracts"/>
+                            <MenuItem text="Vendors"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Billing and Financials" visible="{companyModel>/menuData/Billing}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Invoices"/>
+                            <MenuItem text="Payments"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Gas Management" visible="{companyModel>/menuData/GasManagement}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Operations"/>
+                            <MenuItem text="Allocations"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Gas Accounting" visible="{companyModel>/menuData/GasAccounting}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Reconciliation"/>
+                            <MenuItem text="Statements"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Reports" visible="{companyModel>/menuData/Reports}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Monthly Reports"/>
+                            <MenuItem text="Yearly Reports"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+
+                <MenuButton text="Support" visible="{companyModel>/menuData/Support}">
+                    <menu>
+                        <Menu>
+                            <MenuItem text="Helpdesk"/>
+                            <MenuItem text="FAQs"/>
+                        </Menu>
+                    </menu>
+                </MenuButton>
+            </OverflowToolbar>
+        </Toolbar>
+    </f:DynamicPageHeader>
+</f:header>
+        <!-- CONTENT SECTION -->
+        <f:content>
+    <VBox>
+    <Text id="selectedCompanyText" text="{companyModel>/selectedCompany}" />
+    <Button text="Change Company" press="oMenuPress" />
+
+    <!-- Dynamic Tiles Section -->
+    <HBox>
+        <GenericTile header="Overview" visible="{companyModel>/tileData/Overview}">
+            <TileContent>
+                <NumericContent value="{companyModel>/overviewValue}"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile header="Reports" visible="{companyModel>/tileData/Reports}">
+            <TileContent>
+                <NumericContent value="{companyModel>/reportsValue}"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile header="Finance" visible="{companyModel>/tileData/Finance}">
+            <TileContent>
+                <NumericContent value="{companyModel>/financeValue}"/>
+            </TileContent>
+        </GenericTile>
+
+        <GenericTile header="Contracts" visible="{companyModel>/tileData/Contracts}">
+            <TileContent>
+                <NumericContent value="{companyModel>/contractsValue}"/>
+            </TileContent>
+        </GenericTile>
+    </HBox>
+</VBox>
+
+</f:content>
+
+    </f:DynamicPage>
+</mvc:View>

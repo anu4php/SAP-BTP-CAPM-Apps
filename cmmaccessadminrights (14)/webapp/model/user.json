@@ -1,0 +1,408 @@
+{
+    "terminationUser": [
+      {
+        "oEnerlineUsersAgents": "Dilip Varma",
+        "oAccessType": "Individual User",
+        "oTerminationType": "Terminate Enerline Access",
+        "oTerminationDate": "2025-12-20",
+        "selected": true,
+        "id": 1
+      },
+      {
+        "oEnerlineUsersAgents": "Sterla Smith",
+        "oAccessType": "Agent Company",
+        "oTerminationType": "Terminate Enerline Access and Terminate Relationship",
+        "oTerminationDate": "2025-7-30",
+        "selected": true,
+        "id": 2
+      }
+    ],
+  "enerlineUsers": [
+    {
+      "name": "Aravinda Atreya",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "Consumption Measurement",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": true
+          },
+          {
+            "title": "Banking Information",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": false
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Nominations",
+            "effectiveDate": "2025-01-10",
+            "endDate": "2025-06-30",
+            "selected": true
+          }
+        ],
+        "Storage and Transportation": [
+          {
+            "title": "Short Term Agreement Accept - Paperless",
+            "effectiveDate": "2025-01-15",
+            "endDate": "2025-07-01",
+            "selected": false
+          }
+        ],
+        "Access Administration": [
+          {
+            "title": "Admin Access 1",
+            "effectiveDate": "2025-03-01",
+            "endDate": "2025-08-31",
+            "selected": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Prabhakaran Manokaran",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "Contract Detail",
+            "effectiveDate": "2025-04-01",
+            "endDate": "2025-10-01",
+            "selected": true
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Reports",
+            "effectiveDate": "2025-05-01",
+            "endDate": "2025-10-31",
+            "selected": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rashid Khan",
+      "access": {
+        "Direct Purchases": [],
+        "Distribution": [],
+        "Storage and Transportation": [
+          {
+            "title": "Nominations",
+            "effectiveDate": "2025-06-01",
+            "endDate": "2025-12-31",
+            "selected": true
+          }
+        ],
+        "Access Administration": [
+          {
+            "title": "Admin View Only",
+            "effectiveDate": "2025-02-01",
+            "endDate": "2025-09-30",
+            "selected": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Wright Mike",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "File Transfer",
+            "effectiveDate": "2025-03-15",
+            "endDate": "2025-12-15",
+            "selected": true
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Contract Accept - Paperless",
+            "effectiveDate": "2025-02-20",
+            "endDate": "2025-11-20",
+            "selected": false
+          }
+        ],
+        "Storage and Transportation": [
+          {
+            "title": "Assignment",
+            "effectiveDate": "2025-01-10",
+            "endDate": "2025-08-20",
+            "selected": true
+          }
+        ],
+        "Access Administration": [
+          {
+            "title": "Full Admin",
+            "effectiveDate": "2025-05-01",
+            "endDate": "2025-12-01",
+            "selected": true
+          }
+        ]
+      }
+    }
+  ],
+  "agentUsers": [
+    {
+      "name": "Aravinda Boyapati",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "Consumption Measurement",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": true
+          },
+          {
+            "title": "Invoices",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": false
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Nominations",
+            "effectiveDate": "2025-01-10",
+            "endDate": "2025-06-30",
+            "selected": true
+          }
+        ],
+        "Storage and Transportation": [
+          {
+            "title": "Short Term Agreement Accept - Paperless",
+            "effectiveDate": "2025-01-15",
+            "endDate": "2025-07-01",
+            "selected": false
+          }
+        ],
+        "Access Administration": [
+          {
+            "title": "Admin Access 1",
+            "effectiveDate": "2025-03-01",
+            "endDate": "2025-08-31",
+            "selected": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Anuradha Gurram",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "Contract Detail",
+            "effectiveDate": "2025-04-01",
+            "endDate": "2025-10-01",
+            "selected": true
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Reports",
+            "effectiveDate": "2025-05-01",
+            "endDate": "2025-10-31",
+            "selected": false
+          }
+        ]
+      }
+    }
+  ],
+  "endUsers": [
+    {
+      "name": "Dilip Varma",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "File Transfer",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": true
+          },
+          {
+            "title": "Contract Accept - Paperless",
+            "effectiveDate": "2025-11-22",
+            "endDate": "2025-12-31",
+            "selected": false
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Contract Detail",
+            "effectiveDate": "2025-01-10",
+            "endDate": "2025-06-30",
+            "selected": true
+          }
+        ],
+        "Storage and Transportation": [
+          {
+            "title": "Assignment",
+            "effectiveDate": "2025-01-15",
+            "endDate": "2025-07-01",
+            "selected": false
+          }
+        ],
+        "Access Administration": [
+          {
+            "title": "Admin Access 1",
+            "effectiveDate": "2025-03-01",
+            "endDate": "2025-08-31",
+            "selected": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sterla Smith",
+      "access": {
+        "Direct Purchases": [
+          {
+            "title": "Contract Detail",
+            "effectiveDate": "2025-04-01",
+            "endDate": "2025-10-01",
+            "selected": true
+          }
+        ],
+        "Distribution": [
+          {
+            "title": "Reports",
+            "effectiveDate": "2025-05-01",
+            "endDate": "2025-10-31",
+            "selected": false
+          }
+        ]
+      }
+    }
+  ],
+  "cmmRoles": [
+{
+  "categoryID": "63fc8fdf-cf39-499f-93e1-1b01a1305e6f",
+  "categoryName": "Direct Purchases",
+  "accessRights": [
+    {
+      "accessTypeID": "03523f60-9ce8-469e-973b-592e2db101c2",
+      "rightName": "Contract Detail"
+    },
+    {
+      "accessTypeID": "440ab887-f08e-4824-9ed0-94cf25bb1800",
+      "rightName": "Banking Information"
+    },
+    {
+      "accessTypeID": "6e20113b-c520-4fe0-a426-78304f6f7328",
+      "rightName": "Consumption Measurement"
+    },
+    {
+      "accessTypeID": "97fb721f-8715-4c63-9090-1e7afdaa0f40",
+      "rightName": "Balancing Transaction View"
+    },
+    {
+      "accessTypeID": "ac1bcfbd-ba5c-4321-ba3b-4ed74a59658f",
+      "rightName": "File Transfer"
+    },
+    {
+      "accessTypeID": "af081601-6060-448b-bde7-62366277564b",
+      "rightName": "Invoices"
+    },
+    {
+      "accessTypeID": "b19898b9-c3f2-45c1-be66-df2e6f6a494c",
+      "rightName": "Assignment"
+    },
+    {
+      "accessTypeID": "b2afd862-6c55-4260-8402-92f690942114",
+      "rightName": "Contract Accept - Paperless"
+    },
+    {
+      "accessTypeID": "c7714d86-bd44-4bdc-b333-88c2cf200cec",
+      "rightName": "Balancing Transaction Approval"
+    },
+    {
+      "accessTypeID": "dfe10114-fbd1-41c7-87bf-2df1958dd440",
+      "rightName": "Balancing Transaction Reques"
+    },
+    {
+      "accessTypeID": "f0a11a5d-e8ee-4543-8778-b5f32fec545c",
+      "rightName": "Reports"
+    },
+    {
+      "accessTypeID": "f367e5e6-8eee-4dea-8b40-8a3a8b4a9a29",
+      "rightName": "Unbundled Imbalances"
+    }
+  ]
+},
+{
+  "categoryID": "6e2e5005-bfb8-498f-98b4-acd2e0477dfb",
+  "categoryName": "Distribution",
+  "accessRights": [
+    {
+      "accessTypeID": "175b8a1e-a552-40a5-9cc8-a60c5f94e691",
+      "rightName": "Nominations"
+    },
+    {
+      "accessTypeID": "6655bef3-58de-4589-a685-d0a81be1c737",
+      "rightName": "Consumption Measurement"
+    },
+    {
+      "accessTypeID": "7311da32-a22a-40ad-9f62-a165430044fe",
+      "rightName": "Contract Accept - Paperless"
+    },
+    {
+      "accessTypeID": "adabdf95-84ae-4ac7-8d66-6c68387319c5",
+      "rightName": "Reports"
+    },
+    {
+      "accessTypeID": "c022ffd7-07c4-490e-939a-14fb5be3d972",
+      "rightName": "Invoices"
+    },
+    {
+      "accessTypeID": "ea0a1d43-f723-4775-89d7-b41233e7c5cb",
+      "rightName": "Contract Detail"
+    }
+  ]
+},
+{
+  "categoryID": "490c88f0-1207-4bfe-80a5-19afa42586b2",
+  "categoryName": "Storage and Transportation",
+  "accessRights": [
+    {
+      "accessTypeID": "2b678b9e-c794-4410-ac32-e67886761603",
+      "rightName": "Short Term Agreement Accept - Paperless"
+    },
+    {
+      "accessTypeID": "a704c335-10f6-4f05-b4b7-8ad611bcd958",
+      "rightName": "Nominations"
+    },
+    {
+      "accessTypeID": "b616a0f7-483d-4cde-bd7e-33ef2f03e3ef",
+      "rightName": "Assignment"
+    },
+    {
+      "accessTypeID": "cba260e6-c401-464f-9615-e6eca6802080",
+      "rightName": "Contract Detail"
+    },
+    {
+      "accessTypeID": "d577a244-d830-4f6d-a8eb-7d321a9195a7",
+      "rightName": "Contract Accept - Paperless"
+    }
+  ]
+},
+{
+  "categoryID": "490c88f0-1207-4bfe-80a5-19afa42586b2",
+  "categoryName": "Access Administration",
+  "accessRights": [
+    {
+      "accessTypeID": "2b678b9e-c794-4410-ac32-e67886761603",
+      "rightName": "Admin Access 1"
+    },
+    {
+      "accessTypeID": "a704c335-10f6-4f05-b4b7-8ad611bcd958",
+      "rightName": "Full Admin"
+    },
+    {
+      "accessTypeID": "b616a0f7-483d-4cde-bd7e-33ef2f03e3ef",
+      "rightName": "Admin View Only"
+    }
+    ]
+}
+]
+}

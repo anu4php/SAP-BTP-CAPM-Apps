@@ -1,0 +1,137 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "com.workzone.plugin.portalheader",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.3",
+      "toolsId": "2745a6bd-9296-4717-b94e-354462ec0d39"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/registration/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "Shell-plugin": {
+          "semanticObject": "Shell",
+          "action": "plugin",
+          "title": "{{Shell-plugin.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.workzone.plugin.portalheader.i18n.i18n"
+        }
+      },
+      "mainModel": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "com.workzone.plugin.portalheader.view",
+        "async": true,
+        "viewPath": "com.workzone.plugin.portalheader.view"
+      },
+      "routes": [
+        {
+          "name": "RouteMyBasicView",
+          "pattern": ":?query:",
+          "target": [
+            "TargetMyBasicView"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetMyBasicView": {
+          "id": "MyBasicView",
+          "name": "MyBasicView"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "com.workzone.plugin.portalheader.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  },
+  "sap.flp": {
+    "type": "plugin"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "comworkzonepluginportalheader"
+  }
+}

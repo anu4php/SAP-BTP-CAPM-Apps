@@ -1,0 +1,144 @@
+@server=http://localhost:4004
+@username=alice
+@password=
+
+
+### InquiryTypes
+# @name InquiryTypes_GET
+GET {{server}}/odata/v4/contactussrv/InquiryTypes
+Authorization: Basic {{username}} {{password}}
+
+
+### InquiryTypes
+# @name InquiryTypes_POST
+POST {{server}}/odata/v4/contactussrv/InquiryTypes
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "InquiryType": "84",
+  "InquiryName": "InquiryName-29398084"
+}
+
+
+### InquiryTypes
+# @name InquiryTypes_PATCH
+PATCH {{server}}/odata/v4/contactussrv/InquiryTypes/84
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "InquiryType": "84",
+  "InquiryName": "InquiryName-29398084"
+}
+
+
+### InquiryTypes
+# @name InquiryTypes_DELETE
+DELETE {{server}}/odata/v4/contactussrv/InquiryTypes/84
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+
+### CountryCodes
+# @name CountryCodes_GET
+GET {{server}}/odata/v4/contactussrv/CountryCodes
+Authorization: Basic {{username}} {{password}}
+
+
+### CountryCodes
+# @name CountryCodes_POST
+POST {{server}}/odata/v4/contactussrv/CountryCodes
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "CountryCode": "443",
+  "Country": "443",
+  "name": "name-24366443",
+  "createdAt": "2004-02-20T00:00:00.000Z",
+  "createdBy": "createdBy.ei99n@example.com",
+  "modifiedAt": "2005-02-24T00:00:00.000Z",
+  "modifiedBy": "modifiedBy.ei99n@example.com"
+}
+
+
+### CountryCodes
+# @name CountryCodes_PATCH
+PATCH {{server}}/odata/v4/contactussrv/CountryCodes/443
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "CountryCode": "443",
+  "Country": "443",
+  "name": "name-24366443",
+  "createdAt": "2004-02-20T00:00:00.000Z",
+  "createdBy": "createdBy.ei99n@example.com",
+  "modifiedAt": "2005-02-24T00:00:00.000Z",
+  "modifiedBy": "modifiedBy.ei99n@example.com"
+}
+
+
+### CountryCodes
+# @name CountryCodes_DELETE
+DELETE {{server}}/odata/v4/contactussrv/CountryCodes/443
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+
+### nonUserInquiry
+# @name nonUserInquiry_GET
+GET {{server}}/odata/v4/contactussrv/nonUserInquiry
+Authorization: Basic {{username}} {{password}}
+
+
+### nonUserInquiry
+# @name nonUserInquiry_POST
+POST {{server}}/odata/v4/contactussrv/nonUserInquiry
+Content-Type: application/json
+reCAPTCHA_API: 23953538-d618-41ff-badb-1daa62c1fe20
+
+{
+  "ID": "23953538-d618-41ff-badb-1daa62c1fe20",
+  "InquiryID": 22,
+  "firstName": "firstName-23953538",
+  "lastName": "lastName-23953538",
+  "companyName": "companyName-23953538",
+  "CountryCode": "23953538",
+  "MobileNo": "MobileNo-23953538",
+  "emailID": "emailID-23953538",
+  "InquiryType": {
+    "InquiryType": "84"
+  },
+  "message": "message-23953538"
+}
+
+
+### nonUserInquiry
+# @name nonUserInquiry_PATCH
+PATCH {{server}}/odata/v4/contactussrv/nonUserInquiry/23953538-d618-41ff-badb-1daa62c1fe20
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}
+
+{
+  "ID": "23953538-d618-41ff-badb-1daa62c1fe20",
+  "InquiryID": 22,
+  "firstName": "firstName-23953538",
+  "lastName": "lastName-23953538",
+  "companyName": "companyName-23953538",
+  "CountryCode": "23953538",
+  "MobileNo": "MobileNo-23953538",
+  "emailID": "emailID-23953538",
+  "InquiryType": {
+    "InquiryType": "84"
+  },
+  "message": "message-23953538"
+}
+
+
+### nonUserInquiry
+# @name nonUserInquiry_DELETE
+DELETE {{server}}/odata/v4/contactussrv/nonUserInquiry/23953538-d618-41ff-badb-1daa62c1fe20
+Content-Type: application/json
+Authorization: Basic {{username}} {{password}}

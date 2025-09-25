@@ -1,0 +1,171 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "cmmaccessadminrights",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.18.0",
+      "toolsId": "76eeac50-2ad7-4e2a-9a8e-a9cefcef97f9"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/registration/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "cmmaccessadminrights": {
+          "semanticObject": "cmmaccessadminrights",
+          "action": "View",
+          "title": "{{cmmaccessadminrights.flpTitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "rootView": {
+      "viewName": "cmmaccessadminrights.view.FlexibleColumnLayout",
+      "type": "XML",
+      "id": "MainView",
+      "async": true
+    },
+    "async": true,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+				"sap.f": {},
+				"sap.m": {},
+				"sap.ui.core": {},
+				"sap.ui.layout": {},
+				"sap.uxap": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "cmmaccessadminrights.i18n.i18n"
+        }
+      },
+      "usersModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "model/user.json",
+				"settings": {
+					"sizeLimit": 1000
+				}
+			},
+      "mainModel": {
+        "type": "sap.ui.model.odata.v4.ODataModel",
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "groupId": "$auto"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.f.routing.Router",
+        "controlAggregation": "beginColumnPages",
+        "controlId": "fcl",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "cmmaccessadminrights.view",
+        "async": true
+      },
+      "routes": [
+        {
+          "name": "RouteMain",
+          "pattern": ":?query:",
+          "target": [
+            "list"
+          ]
+        },
+        {
+					"pattern": "list/{layout}/{tab}",
+					"name": "list",
+					"target": [
+						"list"
+					]
+				},
+        {
+					"pattern": "detail/{oBPid}/{layout}/{oTabPath}",
+					"name": "detail",
+					"target": [
+						"list",
+						"detail"
+					]
+				}
+      ],
+      "targets": {
+        "list": {
+          "name": "List",
+          "viewLevel": 1,
+          "id": "List",
+          "controlAggregation": "beginColumnPages"
+        },
+        "detail": {
+          "name": "Detail",
+          "viewLevel": 2,
+          "id": "Detail",
+          "controlAggregation": "midColumnPages"
+        }
+  
+      }
+    }
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "cmmaccessadminrights"
+  }
+}

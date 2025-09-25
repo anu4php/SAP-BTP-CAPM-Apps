@@ -1,0 +1,19 @@
+VIEW registrationService_requestorusers AS SELECT
+  requestors_0.ID,
+  requestors_0.createdAt,
+  requestors_0.createdBy,
+  requestors_0.modifiedAt,
+  requestors_0.modifiedBy,
+  requestors_0.requestorID,
+  requestors_0.submissionID,
+  requestors_0.firstName,
+  requestors_0.lastName,
+  requestors_0.phoneNumber,
+  requestors_0.emailID,
+  requestors_0.companyName,
+  requestors_0.authorizedSignatory,
+  requestors_0.requestType,
+  requestors_0.requestDate,
+  requestors_0.status,
+  requestors_0.AccessRightType_ID
+FROM com_cmm_registration_requestors AS requestors_0

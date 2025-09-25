@@ -1,0 +1,280 @@
+<mvc:View
+    controllerName="noauthcontactus.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <Page
+        id="page"
+        title="Contact Us"
+        titleAlignment="Center"
+    >
+        <content>
+            <VBox
+                id="_IDGenVBox3"
+                alignItems="Center"
+                class="whiteBg"
+            >
+                <VBox
+                    id="_IDGenVBox"
+                    width="60%"
+                >
+                    <HBox
+                        id="_IDGenHBox"
+                        class="sapUiSmallMarginTopBottom"
+                        alignItems="Center"
+                        wrap="Wrap"
+                    >
+                        <!-- <core:HTML
+                            id="_IDGenHTML"
+                            content='&lt;span&gt; Enerline is for contract customers only. All other customers should go to &lt;a href=&quot;https://myaccount.enbridgegas.com/&quot;&gt;My Account&lt;/a&gt;&lt;/span&gt;'
+                        /> -->
+
+                        <Text
+                            id="_IDGenText"
+                            text="Enerline is for contract customers only. All other customers should go to "
+                            class="sapUiTinyMarginEnd"
+                        />
+                        <Link
+                            id="_IDGenLink"
+                            text="My Account"
+                            href="https://myaccount.enbridgegas.com/"
+                        />
+                    </HBox>
+                    <HBox id="_IDGenHBox1">
+                        <!-- By phone section -->
+                        <VBox
+                            id="_IDGenVBox1"
+                            width="40%"
+                            class="greybg"
+                        >
+                            <HBox
+                                id="_IDGenHBox2"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            >
+                                <core:Icon
+                                    id="_IDGenIcon"
+                                    src="sap-icon://call"
+                                    class="sapUiTinyMarginEnd"
+                                />
+                                <Title
+                                    id="_IDGenTitle"
+                                    text="By Phone"
+                                />
+                            </HBox>
+                            <Text
+                                id="_IDGenText1"
+                                text="Enerline support:"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            />
+                            <Link
+                                id="_IDGenLink1"
+                                text="519-436-5446"
+                                href="tel:5194365446"
+                                class="sapUiSmallMarginBegin"
+                            />
+                            <Text
+                                id="_IDGenText2"
+                                text="(Business Hours ET)"
+                                class="sapUiSmallMarginBegin"
+                            />
+                            <Text
+                                id="_IDGenText3"
+                                text="Nominations Support:"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            />
+                            <Link
+                                id="_IDGenLink2"
+                                text="519-436-4545"
+                                href="tel:5194364545"
+                                class="sapUiSmallMarginBegin"
+                            />
+                            <Text
+                                id="_IDGenText4"
+                                text="(Daily Support until 10.00 p.m. CT/11.00 p.m. ET)"
+                                class="sapUiSmallMarginBegin sapUiSmallMarginEnd"
+                            />
+                        </VBox>
+
+                        <!-- By email section -->
+
+                        <VBox
+                            id="_IDGenVBox2"
+                            width="60%"
+                        >
+                            <HBox
+                                id="_IDGenHBox3"
+                                class="sapUiSmallMarginTop sapUiSmallMarginBegin"
+                            >
+                                <core:Icon
+                                    id="_IDGenIcon1"
+                                    src="sap-icon://email"
+                                    class="sapUiTinyMarginEnd"
+                                />
+                                <Title
+                                    id="_IDGenTitle1"
+                                    text="By Email"
+                                />
+                            </HBox>
+                            <f:SimpleForm
+                                id="SimpleForm"
+                                editable="true"
+                                layout="ResponsiveGridLayout"
+                            >
+                                <f:content>
+                                    <Label
+                                        id="_IDGenLabel"
+                                        text="First Name"
+                                        required="true"
+                                    />
+                                    <Input
+                                        id="idFirstName"
+                                        change="onChangeInput"
+                                        maxLength="100"
+                                        value="{/firstName}"
+                                    />
+                                    <Label
+                                        id="_IDGenLabel1"
+                                        text="Last Name"
+                                        required="true"
+                                    />
+                                    <Input
+                                        id="idLastName"
+                                        change="onChangeInput"
+                                        maxLength="100"
+                                        value="{/lastName}"
+                                    />
+                                    <Label
+                                        id="_IDGenLabel2"
+                                        text="Company"
+                                        required="true"
+                                    />
+                                    <Input
+                                        id="idCompany"
+                                        class="sapUiSmallMarginBottom"
+                                        change="onChangeInput"
+                                        maxLength="100"
+                                        value="{/company}"
+                                    />
+                                    <HBox
+                                        id="_IDGenHBox5"
+                                        width="100%"
+                                    >
+                                        <VBox
+                                            id="_IDGenVBox4"
+                                            class="sapUiSmallMarginEnd"
+                                        >
+                                            <Label
+                                                id="_IDGenLabel3"
+                                                text="Country Code:"
+                                            />
+                                            <Select
+                                                id="idCountryCode"
+                                                items="{mainModel>/CountryCodes}"
+                                                change="onCountryCodeChange"
+                                            >
+                                                <core:Item
+                                                    id="_IDGenItem2"
+                                                    key="{mainModel>CountryCode}"
+                                                    text="{mainModel>CountryCode} {mainModel>Country}"
+                                                />
+                                            </Select>
+                                        </VBox>
+
+                                        <VBox
+                                            id="_IDGenVBox5"
+                                            width="100%"
+                                        >
+                                            <Label
+                                                id="_IDGenLabel4"
+                                                text="Phone Number:"
+                                            />
+                                            <Input
+                                                id="idPhone"
+                                                maxLength="20"
+                                                liveChange="onLiveChangePhone"
+                                            />
+                                        </VBox>
+                                    </HBox>
+                                    <Label
+                                        id="_IDGenLabel5"
+                                        text="Email address"
+                                        required="true"
+                                    />
+                                    <Input
+                                        id="idEmail"
+                                        change="onEmailChange"
+                                        maxLength="150"
+                                        value="{/email}"
+                                    />
+                                    <Label
+                                        id="_IDGenLabel6"
+                                        text="Inquiry"
+                                        required="true"
+                                    />
+                                    <Select
+                                        id="idInquiry"
+                                        width="100%"
+                                        items="{mainModel>/InquiryTypes}"
+                                    >
+                                        <core:Item
+                                            id="_IDGenItem3"
+                                            key="{mainModel>InquiryType}"
+                                            text="{mainModel>InquiryName}"
+                                        />
+                                    </Select>
+
+                                    <Label
+                                        id="_IDGenLabel7"
+                                        text="Message"
+                                        required="true"
+                                    />
+                                    <TextArea
+                                        id="idMessage"
+                                        width="100%"
+                                        rows="4"
+                                        class="sapUiSmallMarginBottom"
+                                        change="onChangeInput"
+                                        value="{/message}"
+                                    />
+                                    <core:HTML
+                                        id="recaptchaContainer"
+                                        content='&lt;div id=&quot;recaptchaGoogle&quot; &gt;&lt;/div&gt;'
+                                    />
+                                </f:content>
+                            </f:SimpleForm>
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </content>
+        <footer>
+            <Bar id="_IDGenToolbar">
+                <contentLeft>
+                    <Button
+                        id="idMsgPopBtn"
+                        icon="sap-icon://error"
+                        visible="false"
+                        type="Negative"
+                        press="handleMessagePopoverPress"
+                    />
+                </contentLeft>
+                <contentRight>
+                    <Button
+                        id="idBtnSubmit"
+                        text="Submit"
+                        type="Emphasized"
+                        press="onSubmitPress"
+                        enabled="false"
+                    />
+                    <Button
+                        id="_IDGenButton1"
+                        text="Cancel"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>

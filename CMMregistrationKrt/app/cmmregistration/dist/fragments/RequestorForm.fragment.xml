@@ -1,0 +1,343 @@
+<core:FragmentDefinition
+   xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:tnt="sap.tnt"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:semantic="sap.m.semantic"
+    xmlns:u="sap.ui.unified"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+    <VBox>
+        <Title text="Individual Enerline Access" />
+
+        <form:SimpleForm
+            id="idFormTypeofRequest"
+            editable="true"
+            layout="ResponsiveGridLayout"
+            labelSpanXL="4"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            adjustLabelSpan="false"
+            emptySpanXL="0"
+            emptySpanL="4"
+            emptySpanM="0"
+            emptySpanS="0"
+            columnsXL="2"
+            columnsL="1"
+            columnsM="1"
+            singleContainerFullSize="false"
+            ariaLabelledBy="ariaTitle1"
+            class="cmmInputs"
+        >
+            <form:content>
+                <Label text="Type of Request"  class="customLabel" />
+                <ComboBox
+                    id="idTypeOfRequest"
+                    class="gridBorderStyle"
+                    selectedKey="{wizardModel>/requestType}"
+                >
+                    <core:Item
+                        key="New Access"
+                        class="gridBorderStyle"
+                        text="New Access"
+                    />
+                    <core:Item
+                        key="Additional Access"
+                        class="gridBorderStyle"
+                        text="Additional Access"
+                    />
+                    <core:Item
+                        key="Remove Partial Access"
+                        class="gridBorderStyle"
+                        text="Remove Partial Access"
+                    />
+                    <core:Item
+                        key="Terminate All Access"
+                        class="gridBorderStyle"
+                        text="Terminate All Access"
+                    />
+                    <core:Item
+                        key="Terminate All Access and Terminate Employment Relationship with Company"
+                        class="gridBorderStyle"
+                        text="Terminate All Access and Terminate Employment Relationship with Company"
+                    />
+                </ComboBox>
+            </form:content>
+        </form:SimpleForm>
+   <html:hr />
+        <Title text="Requestor Information"  class="customLabel"/>
+        <HBox>
+            <form:SimpleForm id="idFormFirstName" class="cmmInputs" >
+                <form:content>
+                    <Label text="First Name"  class="customLabel" />
+                    <Input
+                        id="idFirst"
+                        value="{wizardModel>/firstName}"
+                        class="gridBorderStyle"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+
+            <form:SimpleForm id="idFormLastName" class="cmmInputs">
+                <form:content>
+                    <Label text="Last Name" class="customLabel"/>
+                    <Input
+                        id="idLast"
+                        value="{wizardModel>/lastName}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+            <form:SimpleForm id="idFormCCode" width="150px">
+                <form:content>
+                    <Label text="Country Code" width="150px" class="customLabel" ></Label>
+                    <ComboBox id="idCountryCode"
+                        required="true"
+                        width="150px"
+                        selectedKey="CA"
+                        value="{wizardModel>/countryCode}">
+                        <core:Item
+                            key="CA"
+                            text="+1 CA" >
+                        </core:Item>
+                        <core:Item 
+                            key="US"
+                            text="+1 US">
+                        </core:Item>
+                    </ComboBox>
+                </form:content>
+            </form:SimpleForm>
+            <form:SimpleForm id="idFormPhone" class="cmmInputs">
+                <form:content>
+                    <Label text="Phone Number" class="customLabel" />
+                    <Input
+                        id="idPhone"
+                        value="{wizardModel>/phone}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+            <form:SimpleForm id="idFormEmailID" class="cmmInputs">
+                <form:content>
+                    <Label text="Email Address" class="customLabel" />
+                    <Input
+                        id="idEmailAddress"
+                        value="{wizardModel>/email}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+            </HBox>
+            <HBox>
+             <form:SimpleForm id="idemptitleID" class="cmmInputs">
+                <form:content>
+                    <Label text="Job Title"  class="customLabel"/>
+                    <Input
+                        id="idempjobTitle"
+                        value="{wizardModel>/jobTitle}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+        </HBox>
+   <html:hr />
+        <Title text="Employer Company Information" />
+        <HBox>
+            <form:SimpleForm id="idFormEmpName" class="cmmInputs">
+                <form:content>
+                    <Label text="Employer Name" class="customLabel" />
+                    <Input
+                        id="idEmpName"
+                        value="{wizardModel>/employerName}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+            </form:SimpleForm>
+
+            <form:SimpleForm id="idFormEmpAdd" class="cmmInputs">
+                <form:content>
+                    <Label text="Employer Address"  class="customLabel"/>
+                   
+                    <Label text="Employer Address" class="customLabel"/>
+                    <TextArea
+                        id="idEmpAdd"
+                        value="{wizardModel>/employerAddress}"
+                        required="true"
+                        liveChange="onInputLiveChange"
+                    />
+                </form:content>
+                   
+
+            </form:SimpleForm>
+            
+        </HBox>
+   <html:hr />
+        <Title text="Authorized Signatory" />
+        
+        <HBox>
+            <form:SimpleForm id="idFormAuthSign" class="cmmInputs">
+                <form:content>
+                    <Label text="Authorized Signatory (must have authority to bind {wizardModel>/employerName})" class="customLabel" />
+                    
+                    <ComboBox
+                        id="idAuthSign"
+                        selectedKey="{wizardModel>/selectedAuthSign}"
+                        change="onAuthSignChange"
+                    >
+                        <core:Item
+                            key="{wizardModel>/email}"
+                            text="{wizardModel>/firstName}  {wizardModel>/lastName}"
+                        />
+                        <core:Item
+                            key="Other"
+                            text="Other"
+                        />
+                    </ComboBox>
+                </form:content>
+            </form:SimpleForm>
+        </HBox>
+
+        <VBox visible="{= ${wizardModel>/selectedAuthSign} === 'Other' }">
+            <HBox>
+                <form:SimpleForm id="idFormFirstNameOther" class="cmmInputs" >
+                    <form:content>
+                        <Label text="First Name"  class="customLabel"/>
+                        <Input
+                            id="idFirstOther"
+                            value="{wizardModel>/otherFirstName}"
+                            required="true"
+                            liveChange="onInputLiveChange"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+
+                <form:SimpleForm id="idFormLastNameOther" class="cmmInputs">
+                    <form:content>
+                        <Label text="Last Name" class="customLabel" />
+                        <Input
+                            id="idLastOther"
+                            value="{wizardModel>/otherLastName}"
+                            required="true"
+                            liveChange="onInputLiveChange"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+            <form:SimpleForm id="idFormOtherCCode" width="150px">
+                <form:content>
+                    <Label text="Country Code" width="150px" class="customLabel"></Label>
+                    <ComboBox id="idOtherCCode"
+                        required="true"
+                        width="150px"
+                        selectedKey="CA"
+                        value="{wizardModel>/countryCode}">
+                        <core:Item
+                            key="CA"
+                            text="+1 CA" >
+                        </core:Item>
+                        <core:Item 
+                            key="US"
+                            text="+1 US">
+                        </core:Item>
+                    </ComboBox>
+                </form:content>
+            </form:SimpleForm>
+                <form:SimpleForm id="idFormPhoneOther" class="cmmInputs">
+                    <form:content>
+                        <Label text="Phone Number" class="customLabel"/>
+                        <Input
+                            id="idPhoneOther"
+                            value="{wizardModel>/otherPhone}"
+                            required="true"
+                            liveChange="onInputLiveChange"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+             <form:SimpleForm id="idFormEmailOther" class="cmmInputs">
+                    <form:content>
+                        <Label text="Email Address" class="customLabel" />
+                        <Input
+                            id="idEmailOther"
+                            value="{wizardModel>/otherEmail}"
+                            required="true"
+                            liveChange="onInputLiveChange"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+            </HBox>
+
+            <HBox>
+                <form:SimpleForm id="idFormJobTitle" class="cmmInputs">
+                    <form:content>
+                        <Label text="Job Title" class="customLabel" />
+                        <Input
+                            id="idJobTitle"
+                            value="{wizardModel>/jobTitle}"
+                            required="true"
+                            liveChange="onInputLiveChange"
+                        />
+                    </form:content>
+                </form:SimpleForm>
+            </HBox>
+        </VBox>
+        <MessageStrip
+				text="Please note: A detailed request summary will be emailed to the
+             Authorized Signatory for approval purposes. Enbridge Gas will process 
+             the request upon receiving the Authorized Signatory’s authorization via email."
+				type="Information"
+				showIcon="true"
+				class="sapUiMediumMarginBottom  styleGridItem ">
+			</MessageStrip>
+
+        <!-- Buttons for Navigation -->
+        <HBox justifyContent="Start"  class="sapUiContentPadding">
+        <layout:HorizontalLayout
+                            id="_IDGenHorizontalLayout"
+                            class="sapUiContentPadding"
+                        >
+            <Button
+                id="_IDGenButton"
+                text="Previous Step"
+                class="bannerStylePrevious"
+                type="Transparent"
+                press="onNavigate"
+            >
+                <customData>
+                    <core:CustomData
+                        key="direction"
+                        value="prev"
+                    />
+                </customData>
+            </Button>
+
+            <Button
+                id="btnNextm"
+                text="Next Step"
+                type="Emphasized"
+                enabled="true"
+                press="onNavigate"
+            >
+                <customData>
+                    <core:CustomData
+                        key="direction"
+                        value="next"
+                    />
+                </customData>
+            </Button>
+           </layout:HorizontalLayout>
+        </HBox>
+    </VBox>
+</core:FragmentDefinition>

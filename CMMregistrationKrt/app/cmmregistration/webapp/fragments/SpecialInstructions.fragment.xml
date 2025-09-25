@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+                        <VBox
+                            class="sapUiSmallMargin"
+                        >
+                            <Title
+                                text="Special Instructions(if applicable) : "
+                                level="H5"
+                            />
+			<TextArea width="100%" value="Lorem ipsum dolor st amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata" />
+                        </VBox>
+</core:FragmentDefinition>

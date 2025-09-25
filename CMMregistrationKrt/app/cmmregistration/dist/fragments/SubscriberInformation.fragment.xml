@@ -1,0 +1,108 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:cards="sap.f.cards"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+    <Label id="_IDGenLabel23" />
+    <Title id="_IDGenTitle10" text="Enerline Access Request" />
+    <Label id="_IDGenLabel24" />
+
+    <Table
+        id="idTableAddOper"
+        width="100%"
+        mode="MultiSelect"
+        selectionChange="onSubscriberSelection"
+        items="{wizardModel>/subscribers}"
+    >
+        <headerToolbar>
+            <OverflowToolbar>
+                <content>
+                    <!-- <Title text="New Subscriber Information" /> -->
+                    <ToolbarSpacer />
+                    <SearchField width="20%" placeholder="Search" search="onFieldSearch" />
+                    <Button text="Add" type="Transparent" press="onAddItem" />
+                    <!-- Removed delete button from top -->
+                </content>
+            </OverflowToolbar>
+        </headerToolbar>
+        <columns>
+            <Column width="16%"><header><Label text="First Name" /></header></Column>
+            <Column width="16%"><header><Label text="Last Name" /></header></Column>
+            <Column width="16%"><header><Label text="Job Title" /></header></Column>
+            <Column width="16%"><header><Label text="Email Address" /></header></Column>
+            <Column width="8%"><header><Label text="Country Code"/></header></Column>
+            <Column width="16%"><header><Label text="Phone Number" /></header></Column>
+            <Column width="16%"><header><Label text="Request Effective Date" /></header></Column>
+            <Column width="8%"><header><Label text="Action" /></header></Column> <!-- New Delete Column -->
+        </columns>
+        <items>
+            <ColumnListItem type="Active">
+                <cells>
+                    <Input value="{wizardModel>firstName}" editable="{wizardModel>isNameEditable}" liveChange="onLiveChangeSubscribers" />
+                    <Input value="{wizardModel>lastName}" editable="{wizardModel>isNameEditable}" liveChange="onLiveChangeSubscribers" />
+                    <Input value="{wizardModel>jobTitle}" editable="{wizardModel>isEditable}" liveChange="onLiveChangeSubscribers" />
+                    <Input value="{wizardModel>email}" editable="{wizardModel>isEditable}" liveChange="onLiveChangeSubscribers" />
+                    <ComboBox selectedKey="CA" width="150px">
+                        <core:Item
+                            key="CA"
+                            text="+1 CA" >
+                        </core:Item>
+                        <core:Item 
+                            key="US"
+                            text="+1 US">
+                        </core:Item>
+                    </ComboBox>
+                    <Input value="{wizardModel>phone}" editable="{wizardModel>isEditable}" liveChange="onLiveChangeSubscribers" />
+                    <DatePicker value="{wizardModel>requestEffDate}" editable="{wizardModel>isEditable}" liveChange="onLiveChangeSubscribers" change="onRequestDateChange" />
+                   <Button 
+    icon="sap-icon://decline" 
+    type="Transparent" 
+    press="onDeleteSubscriber"
+    enabled="{= ${wizardModel>/subscribers}.length > 1 }"
+    
+/>
+
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+
+    <HBox justifyContent="Start" class="sapUiContentPadding">
+        <layout:HorizontalLayout
+            id="_IDGenHorizontalLayouts"
+            class="sapUiContentPadding"
+        >
+            <Button
+                id="_IDGenButtonss"
+                text="Previous Step"
+                class="bannerStylePrevious"
+                type="Transparent"
+                press="onNavigate"
+            >
+                <customData>
+                    <core:CustomData key="direction" value="prev" />
+                </customData>
+            </Button>
+
+            <Button
+                id="btnNextms"
+                text="Next Step"
+                type="Emphasized"
+                enabled="{wizardModel>/issubscribersSelected}"
+                press="onNavigate"
+            >
+                <customData>
+                    <core:CustomData key="direction" value="next" />
+                </customData>
+            </Button>
+        </layout:HorizontalLayout>
+    </HBox>
+</core:FragmentDefinition>

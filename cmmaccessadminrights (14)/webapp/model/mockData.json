@@ -1,0 +1,25 @@
+
+{
+  "selectedTab": "enerlineUsers",
+  "enerlineUsers": [
+    {
+      "id": "u1",
+      "name": "Aravinda Boyapati",
+      "accessRights": [
+        { "name": "Contract Detail", "enabled": false },
+        { "name": "Banking Information", "enabled": false },
+        { "name": "Consumption Measurement", "enabled": true, "effectiveDate": "2025-11-22" }
+      ]
+    },
+    {
+      "id": "u2",
+      "name": "Anuradha Gurram",
+      "accessRights": []
+    }
+  ],
+  "agentCompanies": [
+    { "id": "a1", "name": "Agent A", "accessRights": [] },
+    { "id": "a2", "name": "Agent B", "accessRights": [] }
+  ],
+  "selectedUser": {}
+}

@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+		xmlns="sap.uxap"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:format="sap.ui.core.format.DateFormat"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+                <m:Page id="oTermPageh">
+                   	
+
+                  <m:customHeader>
+                    <m:Bar>
+                      <m:contentRight>
+                      
+                          <m:HBox id="oTermbuttonContainer" justifyContent="End" alignItems="Center" renderType="Bare">
+                         <m:SearchField search="onTermSearch" class="oTermSearch" />
+                          <m:Button text="Edit" id="oEditTermId" press="onEditTerminate" class="oTerEditdButton"/>
+                          <m:Button text="Cancel Termination" id="oCancelterminateId" press="onCancelTerminationPress" class="onTerminateAllAccessPress" enabled="false"/>
+                          <m:Button text="Submit Changes" id="oSubmitChangesButton" press="onSubmitTerminationChangesPress" class="submitChangesButtontrm" enabled="false"/>
+                        </m:HBox>
+                      </m:contentRight>
+                      
+                    </m:Bar>
+                  </m:customHeader>
+                   <m:Page id="oTerminationContainer" class="Ofudata">
+                    <!-- Termination Records rendering content goes here -->
+                   </m:Page> 
+                </m:Page>
+
+        
+</core:FragmentDefinition>

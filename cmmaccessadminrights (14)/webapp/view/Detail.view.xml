@@ -1,0 +1,65 @@
+<mvc:View displayBlock="true" controllerName="cmmaccessadminrights.controller.Detail" height="100%"
+		xmlns="sap.uxap"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:m="sap.m"
+		xmlns:f="sap.f"
+		xmlns:form="sap.ui.layout.form">
+
+	<ObjectPageLayout id="ObjectPageLayout"
+					 showTitleInHeaderContent="true"
+					alwaysShowContentHeader="false"
+					preserveHeaderStateOnScroll="false"
+					headerContentPinnable="false"
+					isChildPage="false"
+					upperCaseAnchorBar="false" toggleHeaderOnTitleClick="false">
+				<headerTitle>
+					<ObjectPageDynamicHeaderTitle>
+						
+					
+						
+						<navigationActions>
+							<m:Button text="Export All" id="exportAllButton" press="onExportAllPress" class="exportSelectedButton"/>
+							<!-- <m:OverflowToolbarButton type="Transparent" icon="sap-icon://full-screen" press="handleFullScreen" id="enterFullScreenBtn" tooltip="Enter Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/fullScreen} !== null }"/> -->
+							<!-- <m:OverflowToolbarButton type="Transparent" icon="sap-icon://exit-full-screen" press="handleExitFullScreen" id="exitFullScreenBtn" tooltip="Exit Full Screen Mode" visible="{= ${/actionButtonsInfo/midColumn/exitFullScreen} !== null }"/> -->
+							<m:OverflowToolbarButton type="Transparent" icon="sap-icon://decline" class="closebt" press="handleClose"  tooltip="Close middle column" visible="{device>/system/phone}" />
+
+						</navigationActions>
+						
+
+					</ObjectPageDynamicHeaderTitle>
+				</headerTitle>
+
+				<headerContent>
+
+					<m:FlexBox wrap="Wrap" fitContainer="true" alignItems="Stretch" id="ouserDetails">
+						<m:VBox id="detailHead1" class="hdetails1">
+							<m:Title id="accessTitle1" text="Access " class="accesstext" />
+						</m:VBox>
+
+						<m:VBox id="detailHead" class="hdetails">						
+                          <m:Button text="Export Selected" id="exportSelectedButton" press="onExportSelectedPress" class="exportSelectedButton"/>
+                          <m:Button text="Terminate All Access" id="terminateAllAccessButton" press="onTerminateAllAccessPress" class="onTerminateAllAccessPress" visible="false" />
+                          <m:Button text="Submit Changes" id="submitChangesButton" press="onSubmitChangesPress" class="submitChangesButton" visible="false"/>						
+						</m:VBox>
+					
+					<m:VBox id="accessContainer2">
+					
+                    <!-- Access rendering content goes here -->
+                    </m:VBox>
+					<m:VBox id="footerButMsg">
+					
+                    <m:Button id="messageButton"
+            icon="sap-icon://message-popup"
+            type="Transparent"
+			visible="false"
+            press=".onMessageButtonPress"
+            tooltip="Show errors"/>
+                    </m:VBox>
+					</m:FlexBox>
+				</headerContent>
+
+		
+	</ObjectPageLayout>
+
+	
+</mvc:View>

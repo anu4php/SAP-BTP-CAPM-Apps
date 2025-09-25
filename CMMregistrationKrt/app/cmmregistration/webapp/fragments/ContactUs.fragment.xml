@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog id="contactDialog" title="Contact us" stretch="false" resizable="true" draggable="true">
+        <VBox>
+            <Panel headerText="By phone">
+                <VBox>
+                    <Text text="General Enerline support:" />
+                    <Text text="Business hours" class="sapUiSmallMarginTopBottom" />
+                    <Text text="Enerline support hotline:" />
+                    <Text text="519-436-5446" class="sapUiSmallMarginBottom" />
+                    <Text text="Nominations support hotline:" />
+                    <Text text="519-436-4545" class="sapUiSmallMarginBottom" />
+                    <Text text="(Nomination coverage until 11:00 p.m. EST)" />
+                </VBox>
+            </Panel>
+
+            <Panel headerText="By email" class="sapUiSmallMarginTop">
+                <VBox>
+                    <Label text="Selected Company:" />
+                    <Text id="selectedCompany" text="No company selected" />
+
+                    <Label text="Email address:" required="true"/>
+                    <Input value="prabhakaran.manokaran@enbridge.com" />
+
+                    <Label text="Inquiry:" required="true" class="sapUiSmallMarginTop"/>
+                    <Select>
+                        <items>
+                            <core:Item key="1" text="General Inquiry" />
+                            <core:Item key="2" text="Support Request" />
+                        </items>
+                    </Select>
+
+                    <Label text="Subject:" required="true" class="sapUiSmallMarginTop"/>
+                    <Input value="Enerline Inquiry - General Inquiry" />
+
+                    <Label text="Message:" required="true" class="sapUiSmallMarginTop"/>
+                    <TextArea value="Lorem ipsum dolor sit amet, consectetur adipiscing elit." rows="4" />
+                </VBox>
+            </Panel>
+        </VBox>
+
+        <beginButton>
+            <Button text="Submit" type="Emphasized" press="onSubmit" />
+        </beginButton>
+        <endButton>
+            <Button text="Cancel" press="onClose" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,12 @@
+VIEW registrationService_useraccessrights AS SELECT
+  UserAccessRights_0.ID,
+  UserAccessRights_0.createdAt,
+  UserAccessRights_0.createdBy,
+  UserAccessRights_0.modifiedAt,
+  UserAccessRights_0.modifiedBy,
+  UserAccessRights_0.user_ID,
+  UserAccessRights_0.user_requestorID,
+  UserAccessRights_0.accessRight_ID,
+  UserAccessRights_0.accessTypes_ID,
+  UserAccessRights_0.AccessRightStatus
+FROM com_cmm_registration_UserAccessRights AS UserAccessRights_0

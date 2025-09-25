@@ -1,0 +1,10 @@
+COLUMN TABLE com_cmm_registration_AccessRightType (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  categoryName NVARCHAR(5000),
+  rights_ID NVARCHAR(36),
+  PRIMARY KEY(ID)
+)

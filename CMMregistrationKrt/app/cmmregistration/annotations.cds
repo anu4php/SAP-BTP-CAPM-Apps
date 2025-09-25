@@ -1,0 +1,1 @@
+using registrationService as service from '../../srv/cmmservice';

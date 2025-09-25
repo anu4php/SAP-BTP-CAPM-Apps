@@ -1,0 +1,312 @@
+@host = http://localhost:4004/odata/v4/registration
+
+### Insert into Requestoruser
+POST {{host}}/submitRequest
+Content-Type: application/json
+
+{   
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "1234567890",
+    "emailID": "john.doeasdf@example.com",
+    "empName": "Acme Corporation",
+    "empAddress": "123 Acme St, City, Country",
+    "authorizedSignatory": "Jane Smith",
+    "requestType": "Access Request",
+    "subscribers": [
+        {
+            "firstName": "Abhishekabhishek",
+            "lastName": "abc123",
+            "phone": "9876543210",
+            "email": "abc123.johnsonasdf@example.com",
+            "requestDate":"01/01/2025"
+        },
+        {
+            "firstName": "Bob",
+            "lastName": "Brown",
+            "phone": "5555555555",
+            "email": "bob.brown@example.com",
+            "requestDate":"12/04/2025"
+        }
+    ],
+    "accessTypes": [
+        {
+            "categoryID": "C001",
+            "categoryName": "Direct Purchases",
+            "rights": [
+                {
+                    "rightID": "R101",
+                    "rightName": "Balancing Transaction View"
+                },
+                {
+                    "rightID": "R102",
+                    "rightName": "Balancing Transaction Request"
+                },
+                {
+                    "rightID": "R103",
+                    "rightName": "Balancing Transaction Approval"
+                }
+            ]
+        },
+        {
+            "categoryID": "C002",
+            "categoryName": "Distribution",
+            "rights": [
+                {
+                    "rightID": "R201",
+                    "rightName": "Contract Detail"
+                },
+                {
+                    "rightID": "R202",
+                    "rightName": "Consumption Measurement"
+                },
+                {
+                    "rightID": "R203",
+                    "rightName": "Contract Accept - Paperless"
+                }
+            ]
+        },
+        {
+            "categoryID": "C003",
+            "categoryName": "Storage and Transportation",
+            "rights": [
+                {
+                    "rightID": "R301",
+                    "rightName": "Contract Detail"
+                },
+                {
+                    "rightID": "R302",
+                    "rightName": "Contract Accept - Paperless"
+                }
+            ]
+        }
+    ]
+}
+
+
+
+### Insert into Companies
+GET {{host}}/requestoruser
+Content-Type: application/json
+
+
+
+### Insert into Requestoruser
+POST {{host}}/requestorusers
+Content-Type: application/json
+
+{   "requestorID"     : "1234",
+    "submissionID"        : "11111",
+    "firstName": "John",
+    "lastName": "Doe",
+    "phoneNumber": "1234567890",
+    "emailID": "john.doeasdf@example.com",
+
+    "authorizedSignatory": "Jane Smith",
+    "requestType": "Access Request"
+   
+}
+
+
+
+### Insert into Companies
+GET {{host}}/requestorusers
+Content-Type: application/json
+
+
+
+
+### Insert into Companies
+POST {{host}}/companies
+Content-Type: application/json
+
+{
+  "Name": "Energy Co. Ltd"
+}
+
+### Insert into Contracts
+POST {{host}}/contracts
+Content-Type: application/json
+
+{
+  "Name": "SA3",
+  "Company_ID": "a9298311-abbf-4ed1-8db1-fa8bf5cb6a07"
+}
+
+### Insert into Companyusers
+POST {{host}}/companyusers
+Content-Type: application/json
+
+{
+  "Name": "Alice Johnson",
+  "Email": "alice.johnson@example.com",
+  "Company_ID": "9ded016c-cc33-41e0-a729-fcab67fc2a70"
+}
+
+### Insert into Applications
+POST {{host}}/applications
+Content-Type: application/json
+
+{
+  "Name": "SAP Portal",
+  "Group": "Admin Tools"
+}
+
+### Insert into AccessRestrictions
+POST {{host}}/accessRestrictions
+Content-Type: application/json
+
+{
+  "User_ID": "<COMPANYUSER_ID>",
+  "Application_ID": "690ff63-db50-4464-82eb-5020fa6b57e4",
+  "Contract_ID": "<CONTRACT_ID>",
+  "AccessLevel": "Admin"
+}
+
+### Insert into PortalAgents
+POST {{host}}/portalAgents
+Content-Type: application/json
+
+{
+  "User_ID": "847ae98f-ea4a-481a-ae8c-cd06c62d444a",
+  "PortalCompany_ID": "Acme Industries",
+  "Contract_ID": "<CONTRACT_ID>"
+}
+
+
+### Insert into PortalAgents
+POST {{host}}/useraccess
+Content-Type: application/json
+
+{
+    "accessName": "Distribution",
+    "userAccessTypes": [
+        { "userAccessType": "Consumption Measurement" },
+        { "userAccessType": "Contract Detail" },
+        { "userAccessType": "Contract Accept - Paperless (Employee or Agent has authority to bind the Company)" },
+        { "userAccessType": "Nominations (Storage and Transportation Nominations access will also be granted)" },
+        { "userAccessType": "Invoices" },
+        { "userAccessType": "Reports (Storage and Transportation Reports access will also be granted)" }
+    ]
+}
+
+
+
+
+### Get all access rights for a company
+
+
+
+GET {{host}}/useraccess?$filter=accessName eq 'Direct Purchases'&$expand=userAccessTypes
+Accept: application/json
+
+### Get All Requestor Users
+GET {{host}}/requestoruser
+
+### Get All Companies
+GET {{host}}/Companies
+
+### Get All Contracts for a Specific Company
+GET {{host}}/contracts?$filter=Company_ID eq '9ded016c-cc33-41e0-a729-fcab67fc2a70'
+
+### Get All Company Users
+GET {{host}}/companyusers
+
+### Get All Company Contracts
+GET {{host}}/contracts
+
+### Get Access Restrictions for a User
+GET {{host}}/accessRestrictions?$filter=User_ID eq '9ded016c-cc33-41e0-a729-fcab67fc2a70'
+
+### Get All Portal Agents
+GET {{host}}/portalAgents
+
+
+
+### Get All Portal Agents
+POST {{host}}/cmmworkflow
+Content-Type: application/json
+
+{
+
+}
+
+
+### Get All Portal Agents
+GET {{host}}/getAddress
+Content-Type: application/json
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# auth or non auth   
+### Get All Portal Agents
+GET {{host}}/requestoruser/0078b899-eda9-4f38-af0c-034663f37ef4?$expand=accessRights
+
+
+
+### Get All Portal Agents
+GET {{host}}/accessRights
+
+
+
+
+
+### Get All Portal Agents
+POST {{host}}/accessrights
+Content-Type: application/json
+
+{
+ "categoryName": "Distribution"
+}
+
+
+### Get All Portal Agents
+POST {{host}}/accessrighttype
+Content-Type: application/json
+
+{
+    "rightName": "Abhishek access type"
+}
+
+
+
+### Get All Portal Agents
+GET {{host}}/accessrighttype
+Content-Type: application/json
+
+
+
+### Get All Portal Agents
+GET {{host}}/accessrights
+Content-Type: application/json
+
+### Get All Portal Agents
+POST {{host}}/accessrights
+Content-Type: application/json
+
+{    
+    "rightName" : "String",
+    "category_ID":"1234543"
+}
+
+
+
+
+
+### Get All Portal Agents
+GET {{host}}/sendmail
+Content-Type: application/json
+
+

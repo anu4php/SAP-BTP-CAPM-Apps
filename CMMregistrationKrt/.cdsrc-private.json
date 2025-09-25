@@ -1,0 +1,20 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.us21.hana.ondemand.com",
+          "org": "cmmdev",
+          "space": "cmmdev",
+          "instance": "CMMregistration-db",
+          "key": "CMMregistration-db-key"
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      }
+    }
+  }
+}

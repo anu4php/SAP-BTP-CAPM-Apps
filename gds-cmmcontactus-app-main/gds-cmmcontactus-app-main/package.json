@@ -1,0 +1,69 @@
+{
+  "name": "contact_us",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^1",
+    "@sap-cloud-sdk/connectivity": "^4.0.2",
+    "@sap-cloud-sdk/core": "^1.54.2",
+    "@sap-cloud-sdk/http-client": "^4.0.2",
+    "@sap-cloud-sdk/mail-client": "^3.24.0",
+    "@sap-cloud-sdk/resilience": "^4.0.1",
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "axios": "^1.8.4",
+    "cheerio": "^1.0.0",
+    "express": "^4",
+    "form-data": "^4.0.4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "mbt": "^1.2.29",
+    "rimraf": "^5.0.5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "undeploy": "cf undeploy contact_us --delete-services --delete-service-keys --delete-service-brokers",
+    "build": "rimraf resources mta_archives && mbt build --mtar archive",
+    "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "connectivity": true,
+      "db": {
+        "kind": "hana",
+        "vcap": {
+          "service-name": "CMMPortal-db"
+        }
+      },
+      "uaa": false,
+      "auth": {
+        "kind": "mocked"
+      },
+      "Dest_CPI": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "CPI_DEST",
+          "forwardAuthToken": true
+        }
+      },
+      "reCAPTCHA_API": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "Captcha_API"
+        }
+      }
+    },
+    "auth": {
+      "require_authentication": false
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<mvc:View controllerName="cmmaccessadminrights.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m" 
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core">
+
+   <Page id="fclpage">
+	<f:DynamicPage>
+
+    
+    <!-- Header: One DynamicPageHeader with two toolbars stacked -->
+    <f:header>
+      <f:DynamicPageHeader>
+        <VBox id="toolbartitle">
+
+          <!-- Your additional Toolbar below toggle buttons -->
+          <Toolbar height="50px">
+            <Title text="Access Administration" class="title" />
+            <ToolbarSpacer />
+            <Link text="Request New Enerline Access" />
+            <Link text="View Access Rights Description" />
+          </Toolbar>
+
+        </VBox>
+      </f:DynamicPageHeader>
+    </f:header>
+    
+    <!-- Main Content Tabs -->
+    <f:content>
+    <f:FlexibleColumnLayout id="fcl" layout="TwoColumnsMidExpanded" backgroundDesign="Translucent" stateChange="onStateChanged" />
+
+
+      <IconTabBar
+        id="idTabBar"
+        selectedKey="{viewModel>/selectedTabKey}"
+        expanded="true"
+        select="onTaabSelect"
+        >
+
+        <items>
+
+          <!-- Tab 1: Enerline Users -->
+          <IconTabFilter key="tab1" text="Enerline Users" visible="{viewModel>/tabVisibility/tab1}" >
+          <Page title="Enerline Users" id="container6"></Page>
+           <Page title="Enerline Users" id="container22">
+           <core:Fragment  fragmentName="cmmaccessadminrights.fragments.enerlineUsers.EnerLineAccessRights"  />
+            </Page>
+          
+          </IconTabFilter>
+
+          <!-- Tab 2 -->
+        
+		  <IconTabFilter key="tab2" text="Agent Companies" visible="{viewModel>/tabVisibility/tab2}">
+            <Page title="Agent Companies" id="container1">
+           </Page>
+          </IconTabFilter>
+          <!-- Tab 3 -->
+          <IconTabFilter key="tab3" text="End User Customers" visible="{viewModel>/tabVisibility/tab3}">
+            <Page title="End User Customers" id="container2">
+            </Page>
+          </IconTabFilter>
+
+          <!-- Tab 4 -->
+          <IconTabFilter key="tab4" text="Enerline Direct Connect" visible="{viewModel>/tabVisibility/tab4}">
+            <Page title="Enerline Direct Connect" id="container3">
+            </Page>
+          </IconTabFilter>
+
+          <!-- Tab 5 -->
+          <IconTabFilter key="tab5" text="Termination Records" visible="{viewModel>/tabVisibility/tab5}">
+            <Page id="container4">
+            <core:Fragment  fragmentName="cmmaccessadminrights.fragments.oFuturTermination"  />
+
+                     
+            </Page>
+          </IconTabFilter>
+
+        </items>
+      </IconTabBar>
+    </f:content>
+
+  </f:DynamicPage>
+	</Page>
+</mvc:View>

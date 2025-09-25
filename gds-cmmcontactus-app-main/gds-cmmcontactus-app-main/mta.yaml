@@ -1,0 +1,180 @@
+_schema-version: 3.3.0
+ID: contact_us
+description: Contact Us -Unauthenticated.
+version: 1.0.0
+modules:
+  - name: contact_us-srv
+    type: nodejs
+    path: gen/srv
+    requires:
+      - name: contact_us-db
+      - name: contact_us-destination
+      - name: contact_us-connectivity
+      - name: contactusnonauth-uaa
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+      instances: 1
+    build-parameters:
+      builder: npm-ci
+
+  - name: contact_us
+    type: approuter.nodejs
+    path: app/router
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv-api
+          url: ~{srv-url}
+      - name: contact_us_html5-runtime  
+      - name: contact_us-destination
+        group: destinations
+        properties:
+          forwardAuthToken: false
+          name: ui5
+          url: https://ui5.sap.com
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
+    parameters:
+      disk-quota: 256M
+      keep-existing-routes: true
+      memory: 256M
+
+  - name: contact_us-destination-content
+    type: com.sap.application.content
+    requires:
+      - name: contact_us-destination
+        parameters:
+          content-target: true
+      - name: contact_us_html_repo_host
+        parameters:
+          service-key:
+            name: contact_us_html_repo_host-key
+      - name: contact_us-auth
+        parameters:
+          service-key:
+            name: contact_us-auth-key
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: contact_us_html_repo_host
+              ServiceInstanceName: contact_us_html_repo_host
+              ServiceKeyName: contact_us_html_repo_host-key
+              sap.cloud.service: noauthcontactus
+            - Authentication: OAuth2UserTokenExchange
+              Name: contact_us-auth
+              ServiceInstanceName: contact_us-auth
+              ServiceKeyName: contact_us-auth-key
+              sap.cloud.service: noauthcontactus
+          existing_destinations_policy: ignore
+    build-parameters:
+      no-source: true
+
+  - name: contact_us-app-content
+    type: com.sap.application.content
+    path: .
+    requires:
+      - name: contact_us-auth
+      - name: contact_us_html_repo_host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - artifacts:
+            - noauthcontactus.zip
+          name: noauthcontactus
+          target-path: resources/
+
+  - name: noauthcontactus
+    type: html5
+    path: app/noauth_contactus
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm install
+        - npm run build:cf
+      supported-platforms: []
+
+resources:
+  - name: contact_us-db
+    type: org.cloudfoundry.existing-service
+    parameters:
+      service-name: CMMPortal-db
+
+  - name: contact_us-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        tenant-mode: dedicated
+        xsappname: contact_us-${org}-${space}
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+
+  - name: contact_us-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+              - Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+                Name: Contact_us-srv-api
+                ProxyType: Internet
+                Type: HTTP
+                URL: ~{srv-api/srv-url}
+            existing_destinations_policy: update
+      service: destination
+      service-name: contact_us-destination
+      service-plan: lite
+    requires:
+      - name: srv-api
+  - name: contact_us_html_repo_host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: contact_us_html5-runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-runtime
+  - name: contactusnonauth-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+  - name: contact_us-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production

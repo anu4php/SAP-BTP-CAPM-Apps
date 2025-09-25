@@ -1,0 +1,116 @@
+<core:FragmentDefinition
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    displayBlock="true"
+    height="100%"
+>
+    <VBox height="100%">
+        <VBox alignItems="End">
+        <Link href="https://www.enbridgegas.com/storage-transportation/enerline/access-types" target="_blank" text="all access right description"></Link>
+            <Button text="Apply to all users" 
+              enabled="{wizardModel>/alluserAccess}"
+             type="Emphasized"
+             press="giveAccessRight"/>
+        </VBox>
+
+        <SplitApp
+            id="SplitAppDemo"
+            initialDetail="idDefaultDetail"
+            initialMaster="idAccessMaster"
+        >
+            <detailPages>
+                <Page
+                    id="idDefaultDetail"
+                    title="Select a User"
+                    backgroundDesign="Transparent"
+                    showNavButton="false"
+                >
+                    <VBox class="sapUiSmallMargin">
+                        <Text
+                            text="Please select a user from the list to configure access rights."
+                        />
+                    </VBox>
+                </Page>
+            </detailPages>
+            <masterPages>
+                <Page
+                    id="idAccessMaster"
+                    title="User Access"
+                    backgroundDesign="List"
+                >
+                    <List
+                        id="userList"
+                        items="{wizardModel>/subscribers}"
+                        class="cmmAccessRightsListItem"
+                    >
+                        <StandardListItem
+                            title="{wizardModel>firstName} {wizardModel>lastName}"
+                            press="onPressNavToDetail"
+                            type="Active"
+                            class="cmmAccessRightsListItem"
+                        />
+                    </List>
+                </Page>
+            </masterPages>
+        </SplitApp>
+                        <core:Fragment
+                            fragmentName="cmmregistration.fragments.SpecialInstructions"
+                        />
+
+        <MessageStrip
+            text="Ensure that you have selected the correct user before proceeding."
+            type="Information"
+            showCloseButton="true"
+            showIcon="true"
+            class="sapUiSmallMargin  styleGridItem "
+        />
+
+        <Toolbar
+            design="Auto"
+            class="sapUiLargeMarginBottom"
+        >
+            <HBox
+                justifyContent="Start"
+                class="sapUiContentPadding"
+            >
+                <layout:HorizontalLayout
+                    id="_IDGenHorizontalLayoutss"
+                    class="sapUiContentPadding"
+                >
+                    <Button
+                        id="btnPrevGlobal"
+                        text="Previous"
+                        press="onNavigate"
+                        class="bannerStylePrevious"
+            type="Transparent"
+                    >
+                        <customData>
+                            <core:CustomData
+                                key="direction"
+                                value="prev"
+                            />
+                        </customData>
+                    </Button>
+
+                    <Button
+                        id="btnNextGlobal"
+                        text="Next Step"
+                        type="Emphasized"
+                        enabled="{wizardModel>/isAnyAccessSelected}"
+                        press="onNavigate"
+                    >
+                        <customData>
+                            <core:CustomData
+                                key="direction"
+                                value="next"
+                            />
+                        </customData>
+                    </Button>
+                </layout:HorizontalLayout>
+            </HBox>
+        </Toolbar>
+    </VBox>
+</core:FragmentDefinition>
